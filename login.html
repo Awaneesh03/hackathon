@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
 
     <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
 
     <style>
         .auth-container {
@@ -447,11 +447,17 @@
     <script src="shared.js"></script>
     <script>
         // Initialize Supabase
+        const supabaseUrl = 'https://aawvgjczrjcinnmupnba.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhd3ZnamN6cmpjaW5ubXVwbmJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MTQxNzYsImV4cCI6MjA3OTk5MDE3Nn0.ygcCyvG3U-jcwIcCwG7nVgqH6v5p8-cFyAeBaHGXiqM';
+
+        // Check if supabase is loaded
+        if (typeof supabase === 'undefined') {
+            console.error('Supabase SDK failed to load');
+            alert('Error loading authentication system. Please refresh the page.');
+        }
+
         const { createClient } = supabase;
-        const supabaseClient = createClient(
-            'https://aawvgjczrjcinnmupnba.supabase.co',
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhd3ZnamN6cmpjaW5ubXVwbmJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MTQxNzYsImV4cCI6MjA3OTk5MDE3Nn0.ygcCyvG3U-jcwIcCwG7nVgqH6v5p8-cFyAeBaHGXiqM'
-        );
+        const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
         // Tab switching
         const loginTab = document.getElementById('login-tab');
