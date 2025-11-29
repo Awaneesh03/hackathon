@@ -3,11 +3,16 @@
    ========================================== */
 
 :root {
-    /* Brand Colors */
-    --yellow: #FFD300;
-    --black: #000000;
+    /* Brand Colors - Softer, Student-Friendly */
+    --yellow: #FCD34D;
+    /* Softer yellow */
+    --black: #1F2937;
+    /* Softer black (gray-800) */
     --white: #FFFFFF;
-    --purple: #7E3FF2;
+    --purple: #8B5CF6;
+    /* Softer purple */
+    --blue: #60A5FA;
+    /* Softer blue */
 
     /* Grays */
     --gray-50: #F9FAFB;
@@ -21,37 +26,45 @@
     --gray-800: #1F2937;
     --gray-900: #111827;
 
-    /* Semantic Colors */
+    /* Semantic Colors - Softer */
     --red-50: #FEF2F2;
     --red-100: #FEE2E2;
-    --red-500: #EF4444;
-    --red-600: #DC2626;
-    --red-700: #B91C1C;
+    --red-500: #F87171;
+    /* Softer red */
+    --red-600: #EF4444;
+    /* Softer red */
+    --red-700: #DC2626;
 
     --green-50: #F0FDF4;
-    --green-500: #22C55E;
-    --green-600: #16A34A;
+    --green-500: #34D399;
+    /* Softer green */
+    --green-600: #10B981;
+    /* Softer green */
 
     --blue-50: #EFF6FF;
-    --blue-500: #3B82F6;
-    --blue-600: #2563EB;
+    --blue-500: #60A5FA;
+    /* Softer blue */
+    --blue-600: #3B82F6;
+    /* Softer blue */
 
     --orange-50: #FFF7ED;
-    --orange-500: #F97316;
-    --orange-600: #EA580C;
+    --orange-500: #FB923C;
+    /* Softer orange */
+    --orange-600: #F97316;
 
-    /* Shadows */
-    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* Shadows - Reduced for cleaner look */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 12px 24px 0 rgba(0, 0, 0, 0.12);
 
-    /* Border Radius */
+    /* Border Radius - Standardized */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
+    /* 12px - standard for buttons */
     --radius-xl: 1rem;
     --radius-2xl: 1.5rem;
     --radius-full: 9999px;
@@ -69,8 +82,16 @@
     --space-16: 4rem;
     --space-20: 5rem;
 
-    /* Typography */
+    /* Typography - Bigger, friendlier */
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
 
     /* Transitions */
     --transition-fast: 150ms ease;
@@ -99,6 +120,118 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   TYPOGRAPHY UTILITIES
+   ========================================== */
+
+.text-xs {
+    font-size: var(--text-xs);
+}
+
+.text-sm {
+    font-size: var(--text-sm);
+}
+
+.text-base {
+    font-size: var(--text-base);
+}
+
+.text-lg {
+    font-size: var(--text-lg);
+}
+
+.text-xl {
+    font-size: var(--text-xl);
+}
+
+.text-2xl {
+    font-size: var(--text-2xl);
+}
+
+.text-3xl {
+    font-size: var(--text-3xl);
+}
+
+.text-4xl {
+    font-size: var(--text-4xl);
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-extrabold {
+    font-weight: 800;
+}
+
+.font-black {
+    font-weight: 900;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ==========================================
+   SPACING UTILITIES
+   ========================================== */
+
+.mb-2 {
+    margin-bottom: var(--space-2);
+}
+
+.mb-3 {
+    margin-bottom: var(--space-3);
+}
+
+.mb-4 {
+    margin-bottom: var(--space-4);
+}
+
+.mb-6 {
+    margin-bottom: var(--space-6);
+}
+
+.mb-8 {
+    margin-bottom: var(--space-8);
+}
+
+.mt-2 {
+    margin-top: var(--space-2);
+}
+
+.mt-4 {
+    margin-top: var(--space-4);
+}
+
+.mt-8 {
+    margin-top: var(--space-8);
+}
+
+.hidden {
+    display: none !important;
 }
 
 img {
@@ -325,7 +458,7 @@ button {
 }
 
 /* ==========================================
-   BUTTONS
+   BUTTONS - Standardized 48px height, 12px radius
    ========================================== */
 
 .btn {
@@ -333,9 +466,13 @@ button {
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    padding: 0.875rem 1.75rem;
-    border-radius: var(--radius-lg);
-    font-weight: 700;
+    height: 48px;
+    /* Standardized height */
+    padding: 0 1.5rem;
+    border-radius: 12px;
+    /* Standardized radius */
+    font-weight: 600;
+    /* Softer weight */
     cursor: pointer;
     transition: all var(--transition-base);
     border: none;
@@ -343,13 +480,15 @@ button {
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+    /* Reduced shadow */
+    line-height: 1;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+    /* Subtle lift */
+    box-shadow: var(--shadow-md);
 }
 
 .btn:active {
@@ -371,40 +510,38 @@ button {
 }
 
 .btn-primary:hover {
-    background: #1a1a1a;
+    background: var(--gray-700);
 }
 
 .btn-secondary {
     background: var(--white);
     color: var(--black);
-    border: 2px solid var(--black);
+    border: 2px solid var(--gray-300);
 }
 
 .btn-secondary:hover {
-    background: var(--black);
-    color: var(--white);
+    background: var(--gray-50);
+    border-color: var(--black);
 }
 
 .btn-yellow {
     background: var(--yellow);
     color: var(--black);
-    box-shadow: 0 4px 6px rgba(255, 211, 0, 0.3);
 }
 
 .btn-yellow:hover {
-    background: #FFDB33;
-    box-shadow: 0 6px 12px rgba(255, 211, 0, 0.4);
+    background: #FDE68A;
+    /* Lighter yellow */
 }
 
 .btn-purple {
     background: var(--purple);
     color: var(--white);
-    box-shadow: 0 4px 6px rgba(126, 63, 242, 0.3);
 }
 
 .btn-purple:hover {
-    background: #8E51F7;
-    box-shadow: 0 6px 12px rgba(126, 63, 242, 0.4);
+    background: #A78BFA;
+    /* Lighter purple */
 }
 
 .btn-red {
@@ -413,7 +550,7 @@ button {
 }
 
 .btn-red:hover {
-    background: var(--red-700);
+    background: var(--red-500);
 }
 
 .btn-outline {
@@ -425,17 +562,18 @@ button {
 .btn-outline:hover {
     background: var(--black);
     color: var(--white);
-    border-color: var(--black);
 }
 
 /* Button Sizes */
 .btn-sm {
-    padding: 0.5rem 1rem;
+    height: 40px;
+    padding: 0 1rem;
     font-size: 0.875rem;
 }
 
 .btn-lg {
-    padding: 1rem 2rem;
+    height: 56px;
+    padding: 0 2rem;
     font-size: 1.125rem;
 }
 
@@ -859,5 +997,69 @@ button {
 
     .lg\:grid-cols-6 {
         grid-template-columns: repeat(6, 1fr);
+    }
+}
+/* ==========================================
+   RESPONSIVE DESIGN - Mobile First
+   ========================================== */
+
+/* Mobile (default - up to 640px) */
+@media (max-width: 640px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    /* Prevent iOS zoom on input focus */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+    
+    /* Mobile-friendly touch targets */
+    .btn, .icon-btn, .chip {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Stack grids on mobile */
+    .grid-cols-2, .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .mobile-bottom-nav {
+        display: none;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover {
+        transform: none;
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
     }
 }
