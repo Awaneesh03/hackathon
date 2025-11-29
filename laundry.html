@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Pickup – CampusDash</title>
+    <title>Laundry Pickup – CampusDash</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="shared.css">
 
@@ -14,7 +14,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <style>
-        .food-container {
+        .laundry-container {
             max-width: 56rem;
             margin: 6rem auto 4rem;
             padding: 0 1.5rem;
@@ -40,11 +40,11 @@
         }
 
         .info-banner {
-            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
             padding: 1.5rem;
             border-radius: 16px;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--yellow);
+            border-left: 4px solid var(--blue-500);
         }
 
         .info-steps {
@@ -61,8 +61,8 @@
         .step-number {
             width: 32px;
             height: 32px;
-            background: var(--black);
-            color: var(--yellow);
+            background: var(--blue-600);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -72,32 +72,32 @@
             flex-shrink: 0;
         }
 
-        .qr-upload-card {
+        .slip-upload-card {
             background: white;
-            border: 3px dashed var(--purple);
+            border: 3px dashed var(--blue-500);
             border-radius: 20px;
-            padding: 3rem 2rem;
+            padding: 2rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-bottom: 2rem;
         }
 
-        .qr-upload-card:hover {
-            border-color: var(--yellow);
-            background: #FFFBEB;
+        .slip-upload-card:hover {
+            border-color: var(--blue-600);
+            background: #EFF6FF;
             transform: scale(1.01);
         }
 
-        .qr-upload-card.has-image {
+        .slip-upload-card.has-image {
             border-style: solid;
             border-color: var(--green-600);
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
-        .qr-preview {
+        .slip-preview {
             max-width: 100%;
-            max-height: 400px;
+            max-height: 300px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
@@ -146,13 +146,13 @@
         }
 
         .chip:hover {
-            border-color: var(--purple);
+            border-color: var(--blue-500);
         }
 
         .chip.selected {
-            background: var(--purple);
+            background: var(--blue-600);
             color: white;
-            border-color: var(--purple);
+            border-color: var(--blue-600);
         }
 
         .mode-toggle {
@@ -235,11 +235,11 @@
     </nav>
 
     <main>
-        <div class="food-container">
+        <div class="laundry-container">
             <!-- Page Header -->
             <div class="page-header">
-                <h1>🍔 Upload Your Canteen QR</h1>
-                <p>Already ordered from the campus canteen app? Upload your QR code and we'll pick it up for you!</p>
+                <h1>👕 Laundry Pickup Request</h1>
+                <p>Upload your laundry slip and we'll collect your clean clothes when they're ready!</p>
             </div>
 
             <!-- Info Banner -->
@@ -247,74 +247,69 @@
                 <div class="info-steps">
                     <div class="info-step">
                         <div class="step-number">1</div>
-                        <p class="font-bold">Order from official canteen app (Grab N Go, D-Cafe, etc.)</p>
+                        <p class="font-bold">Drop clothes at campus laundry shop</p>
                     </div>
                     <div class="info-step">
                         <div class="step-number">2</div>
-                        <p class="font-bold">Receive your QR code</p>
+                        <p class="font-bold">Receive paper slip with token number</p>
                     </div>
                     <div class="info-step">
                         <div class="step-number">3</div>
-                        <p class="font-bold">Upload QR screenshot below</p>
+                        <p class="font-bold">Upload slip photo & fill details below</p>
                     </div>
                     <div class="info-step">
                         <div class="step-number">4</div>
-                        <p class="font-bold">Our dasher picks up & delivers to you</p>
+                        <p class="font-bold">Our dasher collects & delivers to you</p>
                     </div>
                 </div>
             </div>
 
-            <!-- QR Upload Form -->
-            <form id="food-qr-form">
-                <!-- QR Upload -->
-                <div class="qr-upload-card" id="qr-upload-zone" onclick="document.getElementById('qr-file').click()">
+            <!-- Laundry Form -->
+            <form id="laundry-form">
+                <!-- Slip Upload (Optional) -->
+                <div class="slip-upload-card" id="slip-upload-zone"
+                    onclick="document.getElementById('slip-file').click()">
                     <div id="upload-placeholder">
-                        <i data-lucide="upload" width="64" style="color: var(--purple); margin-bottom: 1rem;"></i>
-                        <p class="font-black text-2xl mb-3">Click to Upload QR Screenshot</p>
-                        <p class="text-sm" style="color: var(--gray-600);">JPG, PNG, or screenshot from canteen app</p>
+                        <i data-lucide="image" width="48" style="color: var(--blue-500); margin-bottom: 1rem;"></i>
+                        <p class="font-bold text-xl mb-2">Upload Laundry Slip Photo (Optional)</p>
+                        <p class="text-sm" style="color: var(--gray-600);">JPG or PNG of your laundry slip</p>
                     </div>
-                    <img id="qr-preview" class="qr-preview hidden" alt="QR Preview">
+                    <img id="slip-preview" class="slip-preview hidden" alt="Slip Preview">
                 </div>
-                <input type="file" id="qr-file" accept="image/*" class="hidden" required>
+                <input type="file" id="slip-file" accept="image/*" class="hidden">
 
-                <!-- Order Details (Manual Entry) -->
-                <div id="order-details" class="form-section hidden">
-                    <h3>📝 Order Details</h3>
+                <!-- Laundry Details -->
+                <div class="form-section">
+                    <h3>🧾 Laundry Details</h3>
                     <div class="form-grid form-grid-2">
                         <div class="form-group">
-                            <label class="form-label">Order ID *</label>
-                            <input type="text" id="order-id" class="form-input" placeholder="e.g., #12345" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Food Name *</label>
-                            <input type="text" id="food-name" class="form-input" placeholder="e.g., Veg Burger Combo"
+                            <label class="form-label">Laundry Token Number *</label>
+                            <input type="text" id="token-number" class="form-input" placeholder="e.g., L-12345"
                                 required>
+                            <p class="text-sm mt-1" style="color: var(--gray-600);">Token number from your laundry slip
+                            </p>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Cafe Name *</label>
-                            <select id="cafe-name" class="form-input" required>
-                                <option value="">Select cafe...</option>
-                                <option value="Grab N Go">Grab N Go</option>
-                                <option value="D-Cafe">D-Cafe</option>
-                                <option value="Food Court">Food Court</option>
-                                <option value="Canteen">Main Canteen</option>
+                            <label class="form-label">Name on Slip *</label>
+                            <input type="text" id="customer-name" class="form-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Number of Items (Optional)</label>
+                            <input type="number" id="items-count" class="form-input" placeholder="e.g., 5" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Laundry Shop</label>
+                            <select id="laundry-shop" class="form-input">
+                                <option value="Campus Laundry">Campus Laundry (Main)</option>
+                                <option value="Quick Wash">Quick Wash</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Order Amount (₹) *</label>
-                            <input type="number" id="order-amount" class="form-input" placeholder="120" min="1"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Order Time (Optional)</label>
-                        <input type="text" id="order-time" class="form-input" placeholder="e.g., 12:30 PM">
                     </div>
                 </div>
 
                 <!-- Delivery Details -->
-                <div id="delivery-details" class="form-section hidden">
+                <div class="form-section">
                     <h3>📍 Delivery Details</h3>
                     <div class="form-grid">
                         <div class="form-group">
@@ -328,7 +323,6 @@
                                 <option value="Library">Central Library</option>
                                 <option value="Lab Block 1">Lab Block 1</option>
                                 <option value="Lab Block 2">Lab Block 2</option>
-                                <option value="Lecture Hall">Lecture Hall</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -365,9 +359,9 @@
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" id="submit-btn" class="btn btn-primary btn-lg btn-full hidden">
+                <button type="submit" class="btn btn-primary btn-lg btn-full">
                     <i data-lucide="check-circle" width="20"></i>
-                    Create Pickup Request
+                    Create Laundry Pickup Request
                 </button>
             </form>
         </div>
@@ -408,13 +402,13 @@
             <i data-lucide="home" width="24"></i>
             <span>Home</span>
         </a>
-        <a href="/food.html" class="mobile-nav-item active">
+        <a href="/food.html" class="mobile-nav-item">
             <i data-lucide="utensils" width="24"></i>
             <span>Food</span>
         </a>
-        <a href="/tracking.html" class="mobile-nav-item">
-            <i data-lucide="map-pin" width="24"></i>
-            <span>Track</span>
+        <a href="/laundry.html" class="mobile-nav-item active">
+            <i data-lucide="shirt" width="24"></i>
+            <span>Laundry</span>
         </a>
         <a href="/dasher.html" class="mobile-nav-item">
             <i data-lucide="user" width="24"></i>
@@ -429,43 +423,30 @@
         // Require authentication
         window.Auth.requireAuth();
 
-        let qrImageData = null;
+        let slipImageData = null;
         let isUrgent = false;
 
-        // QR File Upload
-        const qrFile = document.getElementById('qr-file');
-        const qrZone = document.getElementById('qr-upload-zone');
-        const qrPreview = document.getElementById('qr-preview');
+        // Slip Photo Upload (Optional)
+        const slipFile = document.getElementById('slip-file');
+        const slipZone = document.getElementById('slip-upload-zone');
+        const slipPreview = document.getElementById('slip-preview');
         const uploadPlaceholder = document.getElementById('upload-placeholder');
-        const orderDetails = document.getElementById('order-details');
-        const deliveryDetails = document.getElementById('delivery-details');
-        const submitBtn = document.getElementById('submit-btn');
 
-        qrFile.addEventListener('change', function (e) {
+        slipFile.addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (file && file.type.startsWith('image/')) {
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                    qrImageData = e.target.result;
+                    slipImageData = e.target.result;
 
                     // Show preview
-                    qrPreview.src = e.target.result;
-                    qrPreview.classList.remove('hidden');
+                    slipPreview.src = e.target.result;
+                    slipPreview.classList.remove('hidden');
                     uploadPlaceholder.classList.add('hidden');
-                    qrZone.classList.add('has-image');
-
-                    // Show form sections
-                    orderDetails.classList.remove('hidden');
-                    deliveryDetails.classList.remove('hidden');
-                    submitBtn.classList.remove('hidden');
+                    slipZone.classList.add('has-image');
 
                     // Reinitialize icons
                     lucide.createIcons();
-
-                    // Scroll to form
-                    setTimeout(() => {
-                        orderDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 300);
                 };
                 reader.readAsDataURL(file);
             }
@@ -512,24 +493,18 @@
         });
 
         // Form Submission
-        document.getElementById('food-qr-form').addEventListener('submit', function (e) {
+        document.getElementById('laundry-form').addEventListener('submit', function (e) {
             e.preventDefault();
-
-            if (!qrImageData) {
-                alert('Please upload your QR code');
-                return;
-            }
 
             // Collect form data
             const request = {
                 id: 'REQ-' + Date.now(),
-                category: 'food',
-                qr_image: qrImageData,
-                order_id: document.getElementById('order-id').value,
-                food_name: document.getElementById('food-name').value,
-                cafe_name: document.getElementById('cafe-name').value,
-                order_amount: document.getElementById('order-amount').value,
-                order_time: document.getElementById('order-time').value,
+                category: 'laundry',
+                slip_image: slipImageData,
+                token_number: document.getElementById('token-number').value,
+                customer_name: document.getElementById('customer-name').value,
+                items_count: document.getElementById('items-count').value,
+                laundry_shop: document.getElementById('laundry-shop').value,
                 delivery_location: document.getElementById('delivery-location').value,
                 room_number: document.getElementById('room-number').value,
                 tip: document.getElementById('tip').value,
@@ -542,7 +517,7 @@
             localStorage.setItem('currentRequest', JSON.stringify(request));
 
             // Show success
-            alert('✅ Food pickup request created!');
+            alert('✅ Laundry pickup request created!');
 
             // Redirect to success page
             window.location.href = `success.html?id=${request.id}`;
